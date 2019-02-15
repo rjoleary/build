@@ -1,0 +1,4 @@
+#!/bin/sh
+# Runs QEMU for buildlet, then halts the host machine.
+/usr/bin/qemu-system-riscv64 -nographic -no-reboot -sd /riscv64/root.img -kernel /riscv64/vmlinuz -append "root=/dev/mmcblk0 console=ttyS0 rw rootwait" -m 1024 -redir tcp:80::80 -redir tcp:443::443 -redir tcp:5936::5936
+/sbin/halt
